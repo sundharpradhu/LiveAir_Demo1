@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/Admin/:path*", "destination": "/login.html" },
+    { "source": "/ClientTest/:path*", "destination": "/login.html" },
+    { "source": "/DeliveryTest/:path*", "destination": "/login.html" }
+  ]
+}
