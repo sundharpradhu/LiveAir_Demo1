@@ -163,52 +163,57 @@
 
   <!-- Scripts -->
   <script>
-    // Initialize Lucide icons
-    if (typeof lucide !== 'undefined') lucide.createIcons();
+document.addEventListener('DOMContentLoaded', function () {
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') lucide.createIcons();
 
-    // Tabs
-    const merchantTab = document.getElementById('merchantTab');
-    const adminTab = document.getElementById('adminTab');
-    let currentLoginType = 'merchant';
+  // Tabs
+  const merchantTab = document.getElementById('merchantTab');
+  const adminTab = document.getElementById('adminTab');
+  let currentLoginType = 'merchant';
 
-    merchantTab.addEventListener('click', () => {
-      currentLoginType = 'merchant';
-      merchantTab.classList.add('text-white','gradient-primary'); merchantTab.classList.remove('text-gray-600');
-      adminTab.classList.remove('text-white','gradient-primary'); adminTab.classList.add('text-gray-600');
-    });
+  merchantTab.addEventListener('click', () => {
+    currentLoginType = 'merchant';
+    merchantTab.classList.add('text-white','gradient-primary'); merchantTab.classList.remove('text-gray-600');
+    adminTab.classList.remove('text-white','gradient-primary'); adminTab.classList.add('text-gray-600');
+  });
 
-    adminTab.addEventListener('click', () => {
-      currentLoginType = 'admin';
-      adminTab.classList.add('text-white','gradient-primary'); adminTab.classList.remove('text-gray-600');
-      merchantTab.classList.remove('text-white','gradient-primary'); merchantTab.classList.add('text-gray-600');
-    });
+  adminTab.addEventListener('click', () => {
+    currentLoginType = 'admin';
+    adminTab.classList.add('text-white','gradient-primary'); adminTab.classList.remove('text-gray-600');
+    merchantTab.classList.remove('text-white','gradient-primary'); merchantTab.classList.add('text-gray-600');
+  });
 
-    // Password toggle
-    const togglePassword = document.getElementById('togglePassword');
-    const passwordInput = document.getElementById('password');
-    togglePassword.addEventListener('click', () => {
-      const type = passwordInput.type === 'password' ? 'text' : 'password';
-      passwordInput.type = type;
-      const icon = togglePassword.querySelector('i');
-      icon.setAttribute('data-lucide', type === 'password' ? 'eye' : 'eye-off');
-      if(typeof lucide !== 'undefined') lucide.createIcons();
-    });
+  // Password toggle
+  const togglePassword = document.getElementById('togglePassword');
+  const passwordInput = document.getElementById('password');
+  togglePassword.addEventListener('click', () => {
+    const type = passwordInput.type === 'password' ? 'text' : 'password';
+    passwordInput.type = type;
+    const icon = togglePassword.querySelector('i');
+    icon.setAttribute('data-lucide', type === 'password' ? 'eye' : 'eye-off');
+    if(typeof lucide !== 'undefined') lucide.createIcons();
+  });
 
-    // Login form submission
-    const loginForm = document.getElementById('loginForm');
-    loginForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
-      if(email === "" || password === "") { alert("Please enter both email and password."); return; }
-      // Demo static credentials
-      if(email === "admin@example.com" && password === "1234") {
-        window.location.href = "dashboard.html"; // redirect
-      } else {
-        alert("Invalid email or password!");
-      }
-    });
-  </script>
+  // Login form submission
+  const loginForm = document.getElementById('loginForm');
+  loginForm.addEventListener('submit', function(e){
+    e.preventDefault(); // Prevent default submission
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    if(email === "" || password === "") { alert("Please enter both email and password."); return; }
+
+    // Demo credentials
+    if(email === "admin@example.com" && password === "1234") {
+      alert("Login successful! Redirecting...");
+      window.location.href = "dashboard.html"; // Redirect
+    } else {
+      alert("Invalid email or password!");
+    }
+  });
+});
+</script>
+
 
 </body>
 </html>
