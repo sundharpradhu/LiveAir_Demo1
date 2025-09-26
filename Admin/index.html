@@ -315,12 +315,15 @@
               <a href="forgot-password.html" class="text-sm text-blue-600 hover:text-blue-800">Forgot password?</a>
             </div>
             
-            <button 
-              type="submit" 
-              class="w-full btn-primary text-white font-semibold py-3 px-6 rounded-lg"
-            >
-              Sign In to Dashboard
-            </button>
+            <form action="dashboard.html" method="POST">
+  <input type="text" name="username" placeholder="Username" required>
+  <input type="password" name="password" placeholder="Password" required>
+  <button 
+      type="submit" 
+      class="w-full btn-primary text-white font-semibold py-3 px-6 rounded-lg ripple">
+      Sign In to Dashboard
+  </button>
+</form>
             
           </form>
           
@@ -485,6 +488,18 @@
         }, 300);
       }, 3000);
     }
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault(); // stop form from reloading page
+  const username = this.username.value;
+  const password = this.password.value;
+
+  if(username === "admin" && password === "1234") {
+    window.location.href = "dashboard.html"; // redirect to dashboard
+  } else {
+    alert("Invalid credentials!");
+  }
+});
     
     // Demo credentials hint
     setTimeout(() => {
