@@ -1,7 +1,0 @@
-{
-  "redirects": [
-    { "source": "/Admin", "destination": "/login.html", "permanent": false },
-    { "source": "/ClientTest", "destination": "/login.html", "permanent": false },
-    { "source": "/DeliveryTest", "destination": "/login.html", "permanent": false }
-  ]
-}
